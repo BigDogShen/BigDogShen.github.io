@@ -4,33 +4,6 @@
   
     
     <entry>
-      <title>素数 最大公因数 最小公倍数</title>
-      <link href="/2022/02/19/su-shu-zui-da-gong-yin-shu-zui-xiao-gong-bei-shu/"/>
-      <url>/2022/02/19/su-shu-zui-da-gong-yin-shu-zui-xiao-gong-bei-shu/</url>
-      
-        <content type="html"><![CDATA[<p>这是我写的第一篇博客。</p><h2 id="素数"><a href="#素数" class="headerlink" title="素数"></a>素数</h2><p>素数的定义是一个数的因数只有1和自己本身。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 算法 </tag>
-            
-            <tag> 基础 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Hello World</title>
       <link href="/2022/01/21/hello-world/"/>
       <url>/2022/01/21/hello-world/</url>
