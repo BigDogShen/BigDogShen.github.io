@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>排序</title>
+      <link href="/2022/02/21/pai-xu/"/>
+      <url>/2022/02/21/pai-xu/</url>
+      
+        <content type="html"><![CDATA[<p>这篇文章会记录一些数据结构里面的基本排序算法，用来做笔记。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> 排序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2022/01/21/hello-world/"/>
       <url>/2022/01/21/hello-world/</url>
