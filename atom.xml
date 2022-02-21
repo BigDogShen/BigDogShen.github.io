@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-21T12:15:53.219Z</updated>
+  <updated>2022-02-21T12:22:33.726Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,12 +21,13 @@
     <link href="http://example.com/2022/02/21/pai-xu/"/>
     <id>http://example.com/2022/02/21/pai-xu/</id>
     <published>2022-02-21T08:55:21.000Z</published>
-    <updated>2022-02-21T12:15:53.219Z</updated>
+    <updated>2022-02-21T12:22:33.726Z</updated>
     
     
       
       
     <summary type="html">&lt;p&gt;这篇文章会记录一些数据结构里面的基本排序算法，用来做笔记。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/image/1.jpg&quot; alt=&quot;测试图片&quot;&gt;&lt;/p&gt;
 </summary>
       
     
