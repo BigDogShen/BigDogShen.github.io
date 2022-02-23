@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-23T07:47:15.724Z</updated>
+  <updated>2022-02-23T07:55:40.025Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>《啊哈！算法》栈、队列、链表</title>
-    <link href="http://example.com/2022/02/23/a-ha-suan-fa-zhan-dui-lie-lian-biao/"/>
-    <id>http://example.com/2022/02/23/a-ha-suan-fa-zhan-dui-lie-lian-biao/</id>
-    <published>2022-02-23T07:47:15.000Z</published>
-    <updated>2022-02-23T07:47:15.724Z</updated>
+    <title>栈、队列、链表</title>
+    <link href="http://example.com/2022/02/23/zhan-dui-lie-lian-biao/"/>
+    <id>http://example.com/2022/02/23/zhan-dui-lie-lian-biao/</id>
+    <published>2022-02-23T07:55:40.000Z</published>
+    <updated>2022-02-23T07:55:40.025Z</updated>
     
     
     
@@ -37,8 +37,8 @@
   
   <entry>
     <title>《啊哈！算法》排序</title>
-    <link href="http://example.com/2022/02/21/a-ha-suan-fa-pai-xu/"/>
-    <id>http://example.com/2022/02/21/a-ha-suan-fa-pai-xu/</id>
+    <link href="http://example.com/2022/02/21/pai-xu/"/>
+    <id>http://example.com/2022/02/21/pai-xu/</id>
     <published>2022-02-21T08:55:21.000Z</published>
     <updated>2022-02-23T07:43:27.768Z</updated>
     

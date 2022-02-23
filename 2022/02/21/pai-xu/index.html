@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="关键字">
-    <meta name="description" content="这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要">
+    <meta name="description" content="这篇文章会记录一些数据结构里面的基本排序算法，用来做笔记。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>《啊哈！算法》栈、队列、链表 | 申狗</title>
+    <title>《啊哈！算法》排序 | 申狗</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -290,12 +290,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/source/images/xxx.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">《啊哈！算法》栈、队列、链表</h1>
+                    <h1 class="description center-align post-title">《啊哈！算法》排序</h1>
                 </div>
             </div>
         </div>
@@ -411,12 +411,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%A0%87%E7%AD%BE1/">
-                                <span class="chip bg-color">标签1</span>
+                            <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                                <span class="chip bg-color">排序</span>
                             </a>
                         
-                            <a href="/tags/%E6%A0%87%E7%AD%BE2/">
-                                <span class="chip bg-color">标签2</span>
+                            <a href="/tags/%E3%80%8A%E5%95%8A%E5%93%88%EF%BC%81%E7%AE%97%E6%B3%95%E3%80%8B/">
+                                <span class="chip bg-color">《啊哈！算法》</span>
                             </a>
                         
                     </div>
@@ -427,8 +427,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%88%86%E7%B1%BB/" class="post-category">
-                                分类
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -440,7 +440,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-02-23
+                    2022-02-21
                 </div>
                 
 
@@ -454,14 +454,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -489,7 +489,168 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p><strong>《啊哈！算法》</strong>是我的算法入门书籍，正在看。虽然我之前学过数据结构，但是这本书中的一些思想确实是没有接触过的，什么枚举，贪心之类。为啥选<strong>《啊哈！算法》</strong>这本科普书入门嘞，因为一些书实在是晦涩难懂，这本书也确实不太难，先花点时间(大概是一周左右的时间？最近天天上网课，也确实有些闲)入门吧。</p>
+<h2 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h2><p>桶排序就是当你对一组数排序时，定义一个长度超过这组数据中最大值的数组，数出现一次就在对应序号的数组上+1,然后按序输出数组中元素个数的数组的序号。</p>
+<p>例如：对<code>1 2 200 4 100</code>由大到小排序，就要定义一个array[201]数组，分别对<code>array[1] array[2] array[200] array[4] array[100]</code>+1，然后按序输出数组的序号<code>200 100 4 2 1</code></p>
+<p>代码：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;stdio.h&gt;
+
+int array[1001];//定义一个大数组
+
+int main()
+{
+    int n, m;//n用来输入排序的数的个数，m为输入的数
+    scanf("%d", &amp;n);
+    for (int i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;m);
+        array[m]++;
+    }
+
+    for (int i = 1001; i &gt;= 0; i--)
+    {
+        for (int j = 0; j &lt; array[i]; j++)
+        {
+            printf("%d ", i);
+        }
+    }
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输入</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">5
+8 100 50 22 15 6 1 1000 999 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>运行结果</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">1000 999 100 50 22 15 8 6 1 0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>时间复杂度为：O(N+M)</p>
+<p>问题：桶排序(作者也说了这并非时真的桶排序，姑且这里先说)非常地浪费空间。</p>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒泡排序的基本思想是：每次比较两个相邻的元素，如果它们的顺序错误就把它们交换过来。</p>
+<p>例如：<code>12 35 99 18 76</code>从大到小排</p>
+<p>第一趟：</p>
+<p><code>35 12 99 18 76</code> </p>
+<p><code>35 99 12 18 76</code></p>
+<p><code>35 99 18 12 76</code></p>
+<p><code>35 99 18 76 12</code></p>
+<p>第二趟：</p>
+<p><code>99 35 18 76 12</code></p>
+<p><code>99 35 76 18 12</code></p>
+<p>第三趟：</p>
+<p><code>99 76 35 18 12</code></p>
+<p>结束</p>
+<p>代码：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;stdio.h&gt;
+
+int a[1001];
+
+int main()
+{
+    int n, temp;
+    scanf("%d", &amp;n);
+    for (int i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;a[i]);
+    }
+
+    for (int i = 0; i &lt; n; i++)
+    {
+        for (int j = 0; j &lt; n - i - 1; j++)
+        {
+            if (a[j] &lt; a[j + 1])
+            {
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+        }
+    }
+    for (int i = 0; i &lt; n; i++)
+    {
+        printf("%d ", a[i]);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输入：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">5
+12 35 99 18 76<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>输出：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">99 76 35 18 12<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>对冒泡排序的记忆：如果数组是从0开始的话最外层的循环次数i是比较元素的个数n，内层循环次数就是n-i-1。</p>
+<p>问题：时间复杂度O(n[^2])，时间度太高，效率太低。</p>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>快速排序中用到了二分的思想</p>
+<p>首先在一组数中选出一个数作为基准数，然后分别从两头开始进行比较，假设从左往右检测大于基准数的数，从右往左检测小于基准数的数，将小于基准数的数与大于基准数的数交换，当左和右检测到同一数时停止，将基准数与这个数交换。然后分别对基准数左侧和右侧分别进行同样的操作。</p>
+<p>例：<code>6 1 2 7 9 3 4 5 10 8</code></p>
+<p>第一趟：</p>
+<p>6为基准数</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">6 1 2 5 9 3 4 7 10 8
+6 1 2 5 4 3 9 7 10 8
+3 1 2 5 4 6 9 7 10 8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>第二趟就是将基准数左右两边分别进行同样的操作</p>
+<p>代码：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;stdio.h&gt;
+
+int a[101], n; //定义全局变量，这两个变量需要在子函数中使用
+
+void quicksort(int left, int right)
+{
+    int i, j, t, temp;
+    if (left &gt; right)
+        return;
+    temp = a[left]; // temp中存的就是基准数
+    i = left;
+    j = right;
+    while (i != j)
+    {
+        //顺序很重要，要先从右往左找
+        while (a[j] &gt;= temp &amp;&amp; i &lt; j)
+            j--;
+        //再从左往右找
+        while (a[i] &lt;= temp &amp;&amp; i &lt; j)
+            i++;
+        //交换两个数在数组中的位置
+        if (i &lt; j) //当哨兵i和哨兵j没有相遇时
+        {
+            t = a[i];
+            a[i] = a[j];
+            a[j] = t;
+        }
+    }
+    //最终将基准数归位
+    a[left] = a[i];
+    a[i] = temp;
+
+    quicksort(left, i - 1);  //继续处理左边的，这里是一个递归的过程
+    quicksort(i + 1, right); //继续处理右边的，这里是一个递归的过程
+}
+
+int main()
+{
+    int i, j, t;
+    //读入数据
+    scanf("%d", &amp;n);
+    for (i = 1; i &lt;= n; i++)
+        scanf("%d", &amp;a[i]);    
+    quicksort(1, n); //快速排序调用
+
+    //输出排序后的结果
+    for (i = 1; i &lt;= n; i++)
+        printf("%d ", a[i]);
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输入：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">10 
+6 1 2 7 9 3 4 5 10 8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>输出：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">1 2 3 4 5 6 7 8 9 10<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>时间复杂度：O(NlogN)</p>
+
                 
             </div>
             <hr/>
@@ -515,7 +676,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/02/23/a-ha-suan-fa-zhan-dui-lie-lian-biao/">http://example.com/2022/02/23/a-ha-suan-fa-zhan-dui-lie-lian-biao/</a>
+                    <a href="http://example.com/2022/02/21/pai-xu/">http://example.com/2022/02/21/pai-xu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -553,12 +714,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%A0%87%E7%AD%BE1/">
-                                    <span class="chip bg-color">标签1</span>
+                                <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                                    <span class="chip bg-color">排序</span>
                                 </a>
                             
-                                <a href="/tags/%E6%A0%87%E7%AD%BE2/">
-                                    <span class="chip bg-color">标签2</span>
+                                <a href="/tags/%E3%80%8A%E5%95%8A%E5%93%88%EF%BC%81%E7%AE%97%E6%B3%95%E3%80%8B/">
+                                    <span class="chip bg-color">《啊哈！算法》</span>
                                 </a>
                             
                         </div>
@@ -732,17 +893,16 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/02/23/a-ha-suan-fa-zhan-dui-lie-lian-biao/">
+                <a href="/2022/02/23/zhan-dui-lie-lian-biao/">
                     <div class="card-image">
                         
-                        <img src="/source/images/xxx.jpg" class="responsive-img" alt="《啊哈！算法》栈、队列、链表">
+                        <img src="/source/images/xxx.jpg" class="responsive-img" alt="栈、队列、链表">
                         
-                        <span class="card-title">《啊哈！算法》栈、队列、链表</span>
+                        <span class="card-title">栈、队列、链表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -752,9 +912,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-23
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-23
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -767,7 +927,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -790,48 +949,32 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/02/21/a-ha-suan-fa-pai-xu/">
+                <a href="/2022/01/21/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="《啊哈！算法》排序">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">《啊哈！算法》排序</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这篇文章会记录一些数据结构里面的基本排序算法，用来做笔记。
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            申狗
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">排序</span>
-                    </a>
-                    
-                    <a href="/tags/%E3%80%8A%E5%95%8A%E5%93%88%EF%BC%81%E7%AE%97%E6%B3%95%E3%80%8B/">
-                        <span class="chip bg-color">《啊哈！算法》</span>
-                    </a>
-                    
                 </div>
                 
             </div>
