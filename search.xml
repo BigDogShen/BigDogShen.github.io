@@ -4,60 +4,6 @@
   
     
     <entry>
-      <title>栈、队列、链表</title>
-      <link href="/2022/02/23/zhan-dui-lie-lian-biao/"/>
-      <url>/2022/02/23/zhan-dui-lie-lian-biao/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 分类 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 标签1 </tag>
-            
-            <tag> 标签2 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>《啊哈！算法》排序</title>
-      <link href="/2022/02/21/pai-xu/"/>
-      <url>/2022/02/21/pai-xu/</url>
-      
-        <content type="html"><![CDATA[<p><strong>《啊哈！算法》</strong>是我的算法入门书籍，正在看。虽然我之前学过数据结构，但是这本书中的一些思想确实是没有接触过的，什么枚举，贪心之类。为啥选<strong>《啊哈！算法》</strong>这本科普书入门嘞，因为一些书实在是晦涩难懂，这本书也确实不太难，先花点时间(大概是一周左右的时间？最近天天上网课，也确实有些闲)入门吧。</p><h2 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h2><p>桶排序就是当你对一组数排序时，定义一个长度超过这组数据中最大值的数组，数出现一次就在对应序号的数组上+1,然后按序输出数组中元素个数的数组的序号。</p><p>例如：对<code>1 2 200 4 100</code>由大到小排序，就要定义一个array[201]数组，分别对<code>array[1] array[2] array[200] array[4] array[100]</code>+1，然后按序输出数组的序号<code>200 100 4 2 1</code></p><p>代码：</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;stdio.h&gt;int array[1001];//定义一个大数组int main(){    int n, m;//n用来输入排序的数的个数，m为输入的数    scanf("%d", &amp;n);    for (int i = 0; i &lt; n; i++)    {        scanf("%d", &amp;m);        array[m]++;    }    for (int i = 1001; i &gt;= 0; i--)    {        for (int j = 0; j &lt; array[i]; j++)        {            printf("%d ", i);        }    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>输入</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">58 100 50 22 15 6 1 1000 999 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>运行结果</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">1000 999 100 50 22 15 8 6 1 0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>时间复杂度为：O(N+M)</p><p>问题：桶排序(作者也说了这并非时真的桶排序，姑且这里先说)非常地浪费空间。</p><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒泡排序的基本思想是：每次比较两个相邻的元素，如果它们的顺序错误就把它们交换过来。</p><p>例如：<code>12 35 99 18 76</code>从大到小排</p><p>第一趟：</p><p><code>35 12 99 18 76</code> </p><p><code>35 99 12 18 76</code></p><p><code>35 99 18 12 76</code></p><p><code>35 99 18 76 12</code></p><p>第二趟：</p><p><code>99 35 18 76 12</code></p><p><code>99 35 76 18 12</code></p><p>第三趟：</p><p><code>99 76 35 18 12</code></p><p>结束</p><p>代码：</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;stdio.h&gt;int a[1001];int main(){    int n, temp;    scanf("%d", &amp;n);    for (int i = 0; i &lt; n; i++)    {        scanf("%d", &amp;a[i]);    }    for (int i = 0; i &lt; n; i++)    {        for (int j = 0; j &lt; n - i - 1; j++)        {            if (a[j] &lt; a[j + 1])            {                temp = a[j];                a[j] = a[j + 1];                a[j + 1] = temp;            }        }    }    for (int i = 0; i &lt; n; i++)    {        printf("%d ", a[i]);    }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>输入：</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">512 35 99 18 76<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>输出：</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">99 76 35 18 12<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>对冒泡排序的记忆：如果数组是从0开始的话最外层的循环次数i是比较元素的个数n，内层循环次数就是n-i-1。</p><p>问题：时间复杂度O(n[^2])，时间度太高，效率太低。</p><h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>快速排序中用到了二分的思想</p><p>首先在一组数中选出一个数作为基准数，然后分别从两头开始进行比较，假设从左往右检测大于基准数的数，从右往左检测小于基准数的数，将小于基准数的数与大于基准数的数交换，当左和右检测到同一数时停止，将基准数与这个数交换。然后分别对基准数左侧和右侧分别进行同样的操作。</p><p>例：<code>6 1 2 7 9 3 4 5 10 8</code></p><p>第一趟：</p><p>6为基准数</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">6 1 2 5 9 3 4 7 10 86 1 2 5 4 3 9 7 10 83 1 2 5 4 6 9 7 10 8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>第二趟就是将基准数左右两边分别进行同样的操作</p><p>代码：</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;stdio.h&gt;int a[101], n; //定义全局变量，这两个变量需要在子函数中使用void quicksort(int left, int right){    int i, j, t, temp;    if (left &gt; right)        return;    temp = a[left]; // temp中存的就是基准数    i = left;    j = right;    while (i != j)    {        //顺序很重要，要先从右往左找        while (a[j] &gt;= temp &amp;&amp; i &lt; j)            j--;        //再从左往右找        while (a[i] &lt;= temp &amp;&amp; i &lt; j)            i++;        //交换两个数在数组中的位置        if (i &lt; j) //当哨兵i和哨兵j没有相遇时        {            t = a[i];            a[i] = a[j];            a[j] = t;        }    }    //最终将基准数归位    a[left] = a[i];    a[i] = temp;    quicksort(left, i - 1);  //继续处理左边的，这里是一个递归的过程    quicksort(i + 1, right); //继续处理右边的，这里是一个递归的过程}int main(){    int i, j, t;    //读入数据    scanf("%d", &amp;n);    for (i = 1; i &lt;= n; i++)        scanf("%d", &amp;a[i]);        quicksort(1, n); //快速排序调用    //输出排序后的结果    for (i = 1; i &lt;= n; i++)        printf("%d ", a[i]);    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>输入：</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">10 6 1 2 7 9 3 4 5 10 8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>输出：</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">1 2 3 4 5 6 7 8 9 10<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>时间复杂度：O(NlogN)</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 排序 </tag>
-            
-            <tag> 《啊哈！算法》 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Hello World</title>
       <link href="/2022/01/21/hello-world/"/>
       <url>/2022/01/21/hello-world/</url>
